@@ -16,7 +16,7 @@ def train(f):
     print (total_chars)
     
     unigramEN = {}
-    with open('unigramEN.txt', 'w') as myFile:
+    with open('EN/unigramEN.txt', 'w') as myFile:
         for x in range(97, 123):
             count = training.count(chr(x))
             prob =  count/total_chars
@@ -26,6 +26,6 @@ def train(f):
             unigramEN[chr(x)] = smoothed_prob
             
     print (unigramEN)
-    with open('unigramEN.pkl', 'wb') as myFile:
+    with open('EN/unigramEN.pkl', 'wb') as myFile:
         pickle.dump(unigramEN, myFile)
     return unigramEN

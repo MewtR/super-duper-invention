@@ -2,20 +2,26 @@ from math import log10
 import utilities
 import sys
 sys.path.append('EN')
+sys.path.append('FR')
+sys.path.append('PT')
 import unigramEN
 import bigramEN
+import unigramPT
+import bigramPT
+import unigramFR
+import bigramFR
 import pickle
 
 #Train 
 #unigramEN = unigramEN.train('EN/trainEN.txt')
 #bigramEN = bigramEN.train('EN/trainEN.txt')
-#unigramFR = unigramFR.train('FR/trainFR.txt')
-#bigramFR = bigramFR.train('FR/trainFR.txt')
 #unigramPT = unigramPT.train('PT/trainPT.txt')
 #bigramPT = bigramPT.train('PT/trainPT.txt')
+#unigramFR = unigramFR.train('FR/trainFR.txt')
+#bigramFR = bigramFR.train('FR/trainFR.txt')
 
 #Or import trained model
-with open('unigramEN.pkl', 'rb') as myFile:
+with open('EN/unigramEN.pkl', 'rb') as myFile:
     unigramEN = pickle.load(myFile)
 with open('EN/bigramEN.pkl', 'rb') as myFile:
     bigramEN = pickle.load(myFile)
@@ -31,7 +37,7 @@ with open('PT/bigramPT.pkl', 'rb') as myFile:
     bigramPT = pickle.load(myFile)
 
 
-with open('./testSentences.txt', 'r') as myFile:
+with open('input.txt', 'r') as myFile:
     sentences = myFile.read()
 
 sentences = sentences.split('\n')
@@ -102,6 +108,8 @@ for i in range(len(sentences)):
             myFile.write('\n')
 
 
+print (sentences)
+print (purged_sentences)
 
 
 

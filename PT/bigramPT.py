@@ -16,7 +16,7 @@ def train(f):
     print (total_chars)
     
     bigramPT = {}
-    with open('bigramPT.txt', 'w') as myFile:
+    with open('PT/bigramPT.txt', 'w') as myFile:
         for x in range(97, 123):
             count = training.count(chr(x))
             bigramPT[chr(x)] = {}
@@ -29,8 +29,8 @@ def train(f):
                 bigramPT[chr(x)][chr(y)] = bi_smoothed_prob
             
     #print (bigramPT)
-    with open('bigramPT.pkl', 'wb') as myFile:
+    with open('PT/bigramPT.pkl', 'wb') as myFile:
         pickle.dump(bigramPT, myFile)
     return bigramPT
 
-train('trainPT.txt')
+#train('trainPT.txt')

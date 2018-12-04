@@ -1,6 +1,6 @@
 import pickle
 import sys
-sys.path.append('../')
+#sys.path.append('../')
 import utilities
 
 
@@ -16,7 +16,7 @@ def train(f):
     print (total_chars)
     
     unigramFR = {}
-    with open('unigramFR.txt', 'w') as myFile:
+    with open('FR/unigramFR.txt', 'w') as myFile:
         for x in range(97, 123):
             count = training.count(chr(x))
             prob =  count/total_chars
@@ -26,7 +26,7 @@ def train(f):
             unigramFR[chr(x)] = smoothed_prob
             
     print (unigramFR)
-    with open('unigramFR.pkl', 'wb') as myFile:
+    with open('FR/unigramFR.pkl', 'wb') as myFile:
         pickle.dump(unigramFR, myFile)
     return unigramFR
-train('trainFR.txt')
+#train('trainFR.txt')
